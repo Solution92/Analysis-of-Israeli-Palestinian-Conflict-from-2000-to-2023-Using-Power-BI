@@ -1,7 +1,22 @@
 # Analysis-of-Israeli-Palestinian-Conflict-from-2000-to-2023-Using-Power-BI
-This Dataset records fatalities in the Isereal-Palestinian War for 23 years.
+This Dataset records fatalities in the Israel-Palestinian War for 23 years.
 
 ## Tables of Content
+- [Problem Statement](#problem-statement)
+- [Project Objective](#project-objective)
+- [Data Source](#data-source)
+- [Tools Used](#tools-used)
+- [Data Cleaning and Preparation](#data-cleaning-and-preparation)
+- [Data Cleaning With PostgreSQL](#data-cleaning-with-postgresql)
+- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+- [Data Analysis](#data-analysis)
+- [Individual Visuals](#individual-visuals)
+- [The Dashboard](#the-dashboard)
+- [Result and Findings](#result-and-findings)
+- [Recommendation](#recommendation)
+- [Limitation](#limitation)
+- [Reference](#reference)
+
 
 ### Problem Statement
 
@@ -35,7 +50,7 @@ This Analysis will help the Israeli /Palestinian neighborhood and the entire wor
 
 ### Data Source
 
-[kaggle.com](https://www.kaggle.com/datasets/willianoliveiragibin/fatalities-in-the-israeli-palestinian)
+You can download the dataset used for this analysis from [kaggle.com](https://www.kaggle.com/datasets/willianoliveiragibin/fatalities-in-the-israeli-palestinian)
 
 ### Tools Used
 
@@ -71,7 +86,7 @@ The Dataset has 17 Columns with these attributes viz:
 
 ### Data Cleaning With PostgreSQL
 
-This is the process of standardizing the Dataset before creating a report. It starts with understanding the Dataset. Removing or replacing ‘null’ values and ‘blank’ spaces in the Dataset. Filtering Values and creating Conditional Column. Removing duplicate entries.
+This is the process of standardizing the Dataset before creating a report. It starts with understanding the Dataset. Removing or replacing ‘null’ values and ‘blank’ spaces in the Dataset. Filtering Values and creating Conditional Column. Removing duplicate entries. This was done with PostgreSQL
 
 Data Transformation this is part of the Data cleaning process where I deleted the “Note” Column because it has no usefulness in the insight.
 
@@ -132,7 +147,7 @@ SET gender =
         ELSE gender
     END;
 	
--- check if the table is updated
+-- Check if the table is updated
 SELECT DISTINCT gender FROM War;
 
 --Remove/Update 'Null" values'
@@ -190,7 +205,7 @@ COUNT(*) * 100.0 / (SELECT COUNT(*)
 FROM War) AS percentage 
 FROM War GROUP BY took_part_in_the_hostilities;
 
--- Round up the above to two decimale places
+-- Round up the above to two decimal places
 SELECT
   took_part_in_the_hostilities,
   ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM War), 2) AS percentage
@@ -223,7 +238,7 @@ DESC LIMIT 5;
 SELECT gender, AVG(age) AS average_age 
 FROM War 
 GROUP BY gender;
--- Round up the above to two decimale places
+-- Round up the above to two decimal places
 SELECT
   gender,
   ROUND(AVG(age), 2) AS average_age
@@ -293,13 +308,30 @@ END
 
 ### Result and Findings
 
-- Fatalities trended up, resulting in a 614.29% increase between 2000 and 2023.  Fatalities started trending up on 2017, rising by 212.50% (170) in 6 years.  Fatalities jumped from 35 to 681 during its steepest incline between 2000 and 2006.  
-- Fatalities was highest for gunfire at 9,849, followed by explosion and shelling.  
-- At 10092, Palestinian had the highest Fatalities and was 1,009,100.00% higher than American, which had the lowest Fatalities at 1.  Palestinian had the highest Fatalities at 10,092, followed by Israeli, Jordanian, and American.  Across all 4 citizenship, Fatalities ranged from 1 to 10,092.  
-- No in type_of_injury gunfire made up 40.27% of Count of type_of_injury.  Average Count of type_of_injury was highest for gunfire at 1,641.50, followed by explosion and shelling.  
-- Israeli security forces had the highest total Count of killed_by at 10,000, followed by Palestinian civilians at 1,028 and Israeli civilians at 96.  N/A in killed_by Israeli security forces made up 43.83% of Count of killed_by.  Israeli security forces had the highest average Count of killed_by at 625, followed by Palestinian civilians at 79.08 and Israeli civilians at 32. 
+- Fatalities trended up, resulting in a 614.29% increase between 2000 and 2023.  Fatalities started trending up in 2017, rising by 212.50% (170) in 6 years.  Fatalities jumped from 35 to 681 during its steepest incline between 2000 and 2006.  
+- Fatalities were highest for gunfire at 9,849, followed by explosion and shelling.  
+- At 10092, Palestinians had the highest Fatalities and were 1,009,100.00% higher than Americans, which had the lowest Fatalities at 1.  Palestinian had the highest Fatalities at 10,092, followed by Israeli, Jordanian, and American.  Across all 4 citizens, Fatalities ranged from 1 to 10,092.  
+- No in type_of_injury gunfire made up 40.27% of the Count of type_of_injury.  The average Count of type_of_injury was highest for gunfire at 1,641.50, followed by explosion and shelling.  
+- Israeli security forces had the highest total Count of killed_by at 10,000, followed by Palestinian civilians at 1,028 and Israeli civilians at 96.  N/A in killed_by Israeli security forces made up 43.83% of the Count of killed_by.  Israeli security forces had the highest average Count of killed_by at 625, followed by Palestinian civilians at 79.08 and Israeli civilians at 32. 
 
+### Recommendation
 
+- Based on the findings, it is evident that the trend of fatalities has increased significantly over the years, with a notable rise starting in 2017. 
+- The disproportionate impact on Palestinian citizens raises concerns and underscores the importance of addressing the root causes of conflict. 
+- The involvement of Israeli security forces in a substantial number of fatalities suggests a need for careful examination and potentially reevaluating engagement strategies to minimize civilian casualties. 
+- This analysis highlights the urgency of diplomatic efforts and conflict resolution to mitigate the human cost of ongoing hostilities.
+
+### Limitations
+
+- The dataset limitations may include a lack of detailed contextual information surrounding each fatality, such as the specific circumstances, motivations, or geopolitical factors that could provide a more nuanced understanding. 
+- Additionally, the dataset may not capture potential biases in reporting or underreporting of incidents, impacting the accuracy of the trends and statistics. 
+- The absence of demographic details beyond age, gender, and citizenship limits the depth of analysis on the diverse factors influencing fatalities. 
+- The dataset may not differentiate between combatants and non-combatants, making it challenging to assess the impact on civilian populations accurately. 
+- Lastly, the dataset's time range and geographic scope may not encompass all relevant events, potentially overlooking patterns or trends outside the specified parameters
+
+### References
+
+[kaggle.com](https://www.kaggle.com/datasets/willianoliveiragibin/fatalities-in-the-israeli-palestinian)
 
 
 
