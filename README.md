@@ -50,7 +50,7 @@ This Analysis will help the Israeli /Palestinian neighborhood and the entire wor
 
 ### Data Source
 
-You can download the dataset used for this analysis from [kaggle.com](https://www.kaggle.com/datasets/willianoliveiragibin/fatalities-in-the-israeli-palestinian)
+You can download the dataset used for this analysis from [Here](https://www.kaggle.com/datasets/willianoliveiragibin/fatalities-in-the-israeli-palestinian)
 
 ### Tools Used
 
@@ -215,7 +215,7 @@ GROUP BY took_part_in_the_hostilities;
 "took_part_in_the_hostilities"	"percentage"
 --"No"	                        41.83
 --"Object of targeted killing"	1.80
---"Unknown"	                    5.42
+--"Unknown"	                5.42
 --"0"	                        12.86
 --"Israelis"	                6.93
 --"Yes"	                        31.17 
@@ -229,10 +229,10 @@ DESC LIMIT 5;
 
 --"event_location"	"incident_count"
 --"Gaza City"	         2232
---"Rafah"	             832
---"Khan Yunis"	     538
---"Jabalya R.C."	     477
---"Beit Lahiya"	     471
+--"Rafah"	         832
+--"Khan Yunis"           538
+--"Jabalya R.C."	 477
+--"Beit Lahiya"	         471
 
 --Average Age of Victims by Gender:
 SELECT gender, AVG(age) AS average_age 
@@ -247,7 +247,7 @@ GROUP BY gender;
 
 --"gender"	"average_age"
 --"female"	29.57
---"N/A"	    0.00
+--"N/A"	        0.00
 --"male"	26.03
 
 --Number of Incidents by Citizenship:
@@ -260,7 +260,7 @@ GROUP BY citizenship;
 --"American"	  1
 --"Palestinian"	  10092
 --"Jordanian"	  2
---"Israeli"	      1029
+--"Israeli"	  1029
 
 SELECT * FROM WAR;
 
@@ -330,8 +330,7 @@ END
 - Lastly, the dataset's time range and geographic scope may not encompass all relevant events, potentially overlooking patterns or trends outside the specified parameters
 
 ### References
-
-[kaggle.com](https://www.kaggle.com/datasets/willianoliveiragibin/fatalities-in-the-israeli-palestinian)
+[Israeli-Palestinian Conflict](https://www.kaggle.com/datasets/willianoliveiragibin/fatalities-in-the-israeli-palestinian)
 
 
 
